@@ -51,9 +51,11 @@ const Projects = () => {
                   <a
                     className="ad-btn"
                     href="https://github.com/Zabi-23/IMS.git"
-                  >
-                    View
-                  </a>
+                     target="_blank"
+                      rel="noopener noreferrer"
+                     >
+                      View
+                     </a>
                 </div>
               </div>
             </div>
@@ -78,6 +80,8 @@ const Projects = () => {
                   <a
                     className="ad-btn"
                     href="https://github.com/Zabi-23/TRELLO.git"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     View
                   </a>
@@ -105,7 +109,10 @@ const Projects = () => {
                   <div className="ad-title m-auto">
                     <h5 className="text-uppercase">AI-StudyBuddy</h5>
                   </div>
-                  <a className="ad-btn" href="https://github.com/Zabi-23/AI-StudyBuddy.git">
+                  <a className="ad-btn" 
+                  href="https://github.com/Zabi-23/AI-StudyBuddy.git"
+                  target="_blank"
+                  rel="noopener noreferrer">
                     View
                   </a>
                 </div>

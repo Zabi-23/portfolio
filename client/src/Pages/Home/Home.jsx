@@ -57,16 +57,17 @@ const Home = () => {
           >
             <a
               className="btn btn-hire"
-              href="/image/Resume.pdf" 
-              rel="noreferrer"
-              target="_blank" 
-            >
-              Hire Me
-            </a>
+              href="#contact"  // Använder anchor link för att scrolla ner till kontaktsidan
+                >
+                Hire Me
+               </a>
+
             <a
               className="btn btn-cv"
               href="/image/Resume.pdf" 
-              download="Resume.pdf" 
+              target="_blank"
+              rel="noreferrer"
+              //download="Resume.pdf" 
             >
               My Resume
             </a>

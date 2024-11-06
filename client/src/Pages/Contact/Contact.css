@@ -99,3 +99,14 @@ button:focus {
   }
 }
 
+/* Standard (där SMS-länken visas på alla skärmar) */
+.sms-link {
+  display: none; /* Göm SMS-länken som standard */
+}
+
+/* Visa SMS-länken på enheter med skärmstorlek mindre än 768px (mobil och tablet) */
+@media (max-width: 768px) {
+  .sms-link {
+    display: inline-block; /* Visa SMS-länken endast på mobiler eller iPads */
+  }
+}

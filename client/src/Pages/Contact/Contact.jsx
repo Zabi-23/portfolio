@@ -11,11 +11,12 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
+  const [phone, setPhone] = useState(""); // State för telefonnummer
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!name || !email || !msg) {
+      if (!name || !email || !msg || !phone) { // Kontrollera att alla fält är ifyllda
         toast.error("Vänligen fyll i alla fält");
         return;
       }
@@ -23,6 +24,7 @@ const Contact = () => {
       const res = await axios.post("http://localhost:8080/api/v1/portfolio/sendEmail", {
         name,
         email,
+        phone, // Skicka med telefonnumret
         msg,
       });
 
@@ -30,6 +32,7 @@ const Contact = () => {
         toast.success(res.data.message || "Ditt meddelande har skickats framgångsrikt");
         setName("");
         setEmail("");
+        setPhone(""); // Töm telefonnummerfältet
         setMsg("");
       } else {
         toast.error(res.data.message || "Fel vid att skicka e-post");
@@ -68,6 +71,22 @@ const Contact = () => {
                     <BsGithub color="black" size={30} className="ms-2" />
                     <BsFacebook color="blue" size={30} className="ms-2" />
                   </h6>
+                  {/* Lägg till telefonnummerlänk */}
+                  <p>
+                    Telefon:{" "}
+                    <a href="tel:+46769242525" className="phone-link">
+                      +46 769 242 525
+                    </a>
+                  </p>
+                  {/* Lägg till SMS-länk */}
+                  
+                    <p className="sms-link">
+                     Skicka SMS:{" "}
+                     <a href={`sms:${phone}`} >
+                        Skicka ett SMS till mig
+                        </a>
+                      </p>
+
                 </div>
 
                 <div className="row px-3 mb-4">
@@ -95,6 +114,8 @@ const Contact = () => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
+                
+                
                 <div className="row px-3">
                   <textarea
                     name="msg"
