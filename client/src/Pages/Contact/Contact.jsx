@@ -16,7 +16,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!name || !email || !msg || !phone) { // Kontrollera att alla fält är ifyllda
+      if (!name || !email || !msg ) { // Kontrollera att alla fält är ifyllda
         toast.error("Vänligen fyll i alla fält");
         return;
       }
