@@ -66,14 +66,14 @@ const Contact = () => {
               <div className="row">
                 <div className="row">
                   <h6>
-                    Kontakta oss
+                    Contact With Me
                     <BsLinkedin color="blue" size={30} className="ms-2" />
                     <BsGithub color="black" size={30} className="ms-2" />
                     <BsFacebook color="blue" size={30} className="ms-2" />
                   </h6>
                   {/* Lägg till telefonnummerlänk */}
                   <p>
-                    Telefon:{" "}
+                    Phone:{" "}
                     <a href="tel:+46769242525" className="phone-link">
                       +46 769 242 525
                     </a>
@@ -81,9 +81,9 @@ const Contact = () => {
                   {/* Lägg till SMS-länk */}
                   
                     <p className="sms-link">
-                     Skicka SMS:{" "}
+                     SEND SMS:{" "}
                      <a href={`sms:${phone}`} >
-                        Skicka ett SMS till mig
+                        Send a message to me
                         </a>
                       </p>
 
@@ -91,14 +91,14 @@ const Contact = () => {
 
                 <div className="row px-3 mb-4">
                   <div className="line" />
-                  <small className="or text-center">ELLER</small>
+                  <small className="or text-center">OR</small>
                   <div className="line" />
                 </div>
                 <div className="row px-3">
                   <input
                     type="text"
                     name="name"
-                    placeholder="Skriv ditt namn"
+                    placeholder="Write your name"
                     className="mb-3"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -108,7 +108,7 @@ const Contact = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Skriv din e-postadress"
+                    placeholder="Write your email"
                     className="mb-3"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -119,7 +119,7 @@ const Contact = () => {
                 <div className="row px-3">
                   <textarea
                     name="msg"
-                    placeholder="Skriv ditt meddelande"
+                    placeholder="Write your message"
                     className="mb-3"
                     value={msg}
                     onChange={(e) => setMsg(e.target.value)}
@@ -127,7 +127,7 @@ const Contact = () => {
                 </div>
                 <div className="row px-3">
                   <button className="button" onClick={handleSubmit}>
-                    SKICKA MEDDELANDE
+                  SEND MESSAGE
                   </button>
                 </div>
               </div>

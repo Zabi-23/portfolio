@@ -1,4 +1,5 @@
 
+
 // src/Pages/WorkExp/WorkExp.jsx
 
 import { SiReact } from "react-icons/si";
@@ -29,18 +30,16 @@ const WorkExp = () => {
             icon={<SiReact />}
           >
             <h3 className="vertical-timeline-element-title">
-              FBG-Lärare 
+              Mathematics Teacher
             </h3>
             <h4 className="vertical-timeline-element-subtitle">
               Slottskolan
             </h4>
             <p>
-              Planerade och genomförde undervisning i matematik, samhällskunskap.
-              Använde en varierad pedagogik för att nå alla elever och anpassade 
-              undervisningen till deras individuella behov.
-              Bedömde elevernas lärande på ett rättvist och konstruktivt sätt.
-              Samarbetade med kollegor och andra professionella för att skapa en 
-              positiv och samarbetsvillig arbetsmiljö.
+              Planned and conducted lessons in mathematics and social studies.
+              Used a varied teaching approach to meet the needs of all students and tailored lessons to their individual requirements.
+              Assessed students progress in a fair and constructive way.
+              Collaborated with colleagues and other professionals to create a positive and cooperative work environment.
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
@@ -54,17 +53,16 @@ const WorkExp = () => {
             icon={<SiReact />}
           >
             <h3 className="vertical-timeline-element-title">
-              Personal på Fenix och Pegasus (HVB)
+              Youth Program Coordinator
             </h3>
             <h4 className="vertical-timeline-element-subtitle">
-              Vingåker-kommun
+              Vingåker Municipality
             </h4>
             <p>
-              Personal på Fenix och Pegasus (HVB) ungdomsboende
-              Ansvarig för att skapa en trygg och positiv miljö för ungdomar.
-              Planerade och genomförde aktiviteter som främjade social samvaro och personlig
-              utveckling. Stödde ungdomarna i deras vardag och utmaningar. Samarbetade  
-              med deras familjer och andra relevanta aktörer.
+              Coordinated activities for youth at Fenix and Pegasus (HVB) residential centers.
+              Created engaging programs that fostered personal development and social skills.
+              Provided day-to-day support and mentorship, helping young residents navigate their challenges.
+              Collaborated with families and relevant stakeholders to ensure a supportive environment.
             </p>
           </VerticalTimelineElement>
         </VerticalTimeline>
@@ -74,4 +72,3 @@ const WorkExp = () => {
 };
 
 export default WorkExp;
-

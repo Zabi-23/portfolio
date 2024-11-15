@@ -9,7 +9,7 @@ import portfolioRouter from './routes/portfolioRoute.js';
 dotenv.config();
 
 const app = express();
-const PORT = 8080;
+const PORT = 5000;
 
 // Update CORS options to allow requests from localhost:5173
 const corsOptions = {
