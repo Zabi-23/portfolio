@@ -1,6 +1,3 @@
-
-
-
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -11,22 +8,23 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Updated CORS configuration
+// Apply global CORS middleware
 const corsOptions = {
-  origin: 'https://portfolio-client-ochre-rho.vercel.app',
+  origin: 'https://portfolio-client-ochre-rho.vercel.app', // Your frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
 
-app.use(cors(corsOptions)); // Apply CORS middleware
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Handle preflight requests
 
-// Middleware to handle preflight OPTIONS requests
-app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://portfolio-client-ochre-rho.vercel.app');
-  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.sendStatus(200);
+// Debugging middleware to log incoming requests
+app.use((req, res, next) => {
+  console.log('Request Method:', req.method);
+  console.log('Request Origin:', req.headers.origin);
+  console.log('Request Path:', req.path);
+  next();
 });
 
 app.use(express.json());
@@ -43,4 +41,4 @@ app.listen(PORT, () => {
   console.log(`Server Running On PORT ${PORT}`);
 });
 
-export default app; // Export app for Vercel
+export default app;
