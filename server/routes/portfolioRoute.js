@@ -1,4 +1,4 @@
-/* //server/routes/portfolioRoute.js
+ //server/routes/portfolioRoute.js
 
 
 import express from "express";
@@ -13,17 +13,8 @@ router.post("/sendEmail", sendEmailController);
 export default router;
 
 
- */
+ 
 
-import express from 'express';
-import { sendEmailController } from '../controllers/portfolioController.js';
-
-const router = express.Router();
-
-
-router.post('/sendEmail', sendEmailController);
-
-export default router;
 
 
 
