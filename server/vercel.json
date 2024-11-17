@@ -1,4 +1,3 @@
-
 {
     "version": 2,
     "builds": [
@@ -9,9 +8,9 @@
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "/"
+        "src": "/api/v1/portfolio/(.*)",
+        "dest": "/index.js"
       }
     ]
-
-}
+  }
+  

@@ -17,6 +17,10 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
+app.get('/', (req, res) => {
+  res.send('Server is running. Use /api/v1/portfolio for API routes.');
+});
+
 app.use(cors(corsOptions));
 app.use(express.json());
 
