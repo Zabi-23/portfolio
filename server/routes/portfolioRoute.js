@@ -21,9 +21,10 @@ import { sendEmailController } from '../controllers/portfolioController.js';
 
 const router = express.Router();
 
-// Send email route
+// Ensure the route is correctly defined to handle POST requests
 router.post('/sendEmail', sendEmailController);
 
 export default router;
+
 
 

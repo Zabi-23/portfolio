@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Custom middleware to set CORS headers explicitly
+// Explicitly set CORS headers
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://portfolio-clent.vercel.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
@@ -24,12 +24,12 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-// Simple root route to check if the server is running
+// Root route to check if the server is running
 app.get('/', (req, res) => {
   res.send('Server is running. Use /api/v1/portfolio for API routes.');
 });
 
-// Portfolio router for API routes
+// Use the portfolio router for API routes
 app.use('/api/v1/portfolio', portfolioRouter);
 
 app.listen(PORT, () => {
