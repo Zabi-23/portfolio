@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+.env.local
+
 
 
 dist/
@@ -25,5 +27,4 @@ node_modules/
 *.sw?
 .env
 .vscode
-.env.local
 vercel.json
