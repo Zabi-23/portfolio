@@ -1,5 +1,6 @@
 
 
+
 import express from 'express';
 import cors from 'cors';
 import portfolioRouter from './routes/portfolioRoute.js'; // Importera din router
@@ -7,11 +8,13 @@ import portfolioRouter from './routes/portfolioRoute.js'; // Importera din route
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// Middleware för CORS
 const allowedOrigins = [
-  'http://localhost:5173',
-  'https://portfolio-clent.vercel.app',
+  'http://localhost:5173', // För utvecklingsmiljö
+  'https://portfolio-clent.vercel.app', // Din live front-end domän
   'https://portfolio-clent-git-main-zabi-23s-projects.vercel.app',
-  'https://portfolio-clent-jla10zs7d-zabi-23s-projects.vercel.app'
+  'https://portfolio-clent-jla10zs7d-zabi-23s-projects.vercel.app',
+  'https://portfolio-clent-i2fmnyl57-zabi-23s-projects.vercel.app'
 ];
 
 app.use(cors({
@@ -26,6 +29,9 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
+// Middleware för att hantera OPTIONS-förfrågningar (preflight requests)
+app.options('*', cors()); 
 
 // Middleware för att hantera JSON
 app.use(express.json());
