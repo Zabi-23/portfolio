@@ -8,9 +8,22 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Apply global CORS middleware
+// Updated CORS configuration to handle multiple client URLs
+const allowedOrigins = [
+  'https://portfolio-clent.vercel.app',
+  'https://portfolio-clent-git-main-zabi-23s-projects.vercel.app',
+  'https://portfolio-clent-jla10zs7d-zabi-23s-projects.vercel.app',
+  'http://localhost:5173' // For local development
+];
+
 const corsOptions = {
-  origin: 'https://portfolio-client-ochre-rho.vercel.app', // Your frontend URL
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
