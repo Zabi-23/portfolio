@@ -8,14 +8,15 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Updated CORS configuration to handle multiple client URLs
+// Set allowed origins for CORS
 const allowedOrigins = [
   'https://portfolio-clent.vercel.app',
   'https://portfolio-clent-git-main-zabi-23s-projects.vercel.app',
   'https://portfolio-clent-jla10zs7d-zabi-23s-projects.vercel.app',
-  'http://localhost:5173' // For local development
+  'http://localhost:5173' // Local development
 ];
 
+// CORS configuration with dynamic origin setting
 const corsOptions = {
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
@@ -29,29 +30,30 @@ const corsOptions = {
   credentials: true,
 };
 
+// Apply CORS middleware
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Handle preflight requests
+app.options('*', cors(corsOptions)); // Handle preflight requests for all routes
 
-// Debugging middleware to log incoming requests
+// Debugging middleware to log request origin and method
 app.use((req, res, next) => {
-  console.log('Request Method:', req.method);
   console.log('Request Origin:', req.headers.origin);
   console.log('Request Path:', req.path);
+  console.log('Request Method:', req.method);
   next();
 });
 
 app.use(express.json());
 
-// Simple route to check if the server is running
+// Root route for server status check
 app.get('/', (req, res) => {
   res.send('Server is running. Use /api/v1/portfolio for API routes.');
 });
 
-// Use portfolio router
+// Portfolio router
 app.use('/api/v1/portfolio', portfolioRouter);
 
 app.listen(PORT, () => {
   console.log(`Server Running On PORT ${PORT}`);
 });
 
-export default app;
+export default app; // Export app for Vercel compatibility
