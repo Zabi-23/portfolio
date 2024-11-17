@@ -14,22 +14,22 @@ export default router;
 
 
  */
-
 import express from 'express';
 import cors from 'cors';
 import { sendEmailController } from '../controllers/portfolioController.js';
 
 const router = express.Router();
 
-// Add CORS headers specifically for this route
-router.use(cors({
-  origin: 'https://portfolio-client-ochre-rho.vercel.app', // Your frontend URL
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+// Apply CORS specifically for this route
+const corsOptions = {
+  origin: 'https://portfolio-clent.vercel.app', // Your frontend URL
+  methods: 'POST',
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
-}));
+};
 
-// Define route for sending email
-router.post('/sendEmail', sendEmailController);
+router.options('/sendEmail', cors(corsOptions)); // Handle preflight request for sendEmail route
+router.post('/sendEmail', cors(corsOptions), sendEmailController);
 
 export default router;
+
