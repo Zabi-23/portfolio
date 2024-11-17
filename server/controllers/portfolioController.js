@@ -1,4 +1,4 @@
-
+/* 
 
 
 import nodemailer from 'nodemailer';
@@ -57,5 +57,50 @@ export const sendEmailController = async (req, res) => {
       message: "Fel vid att skicka e-post",
       error,
     });
+  }
+};
+ */
+
+import nodemailer from 'nodemailer';
+
+export const sendEmailController = async (req, res) => {
+  console.log('Request body:', req.body);
+  try {
+    const { name, email, msg } = req.body;
+
+    if (!name || !email || !msg) {
+      return res.status(400).send({
+        success: false,
+        message: 'Please fill in all fields',
+      });
+    }
+
+    // Create a transporter with SMTP details for Gmail
+    const transporter = nodemailer.createTransport({
+      service: 'gmail', // Gmail service
+      auth: {
+        user: process.env.EMAIL_USER, // Your Gmail address
+        pass: process.env.EMAIL_PASS, // Your Gmail password or app-specific password
+      },
+      tls: {
+        rejectUnauthorized: false, // Allows insecure certificates if using a development environment
+      },
+      debug: true, // Enable debug output
+      logger: true, // Enable log output
+    });
+
+    const mailOptions = {
+      from: `"${name}" <${email}>`,
+      to: process.env.EMAIL_USER, // The recipient email address
+      subject: 'New Message from Portfolio Contact Form',
+      text: msg,
+    };
+
+    // Send the email
+    await transporter.sendMail(mailOptions);
+    res.status(200).send({ success: true, message: 'Email sent successfully' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).send({ success: false, message: 'Email failed to send' });
   }
 };
