@@ -1,6 +1,3 @@
-
-
-
 import express from 'express';
 import cors from 'cors';
 import portfolioRouter from './routes/portfolioRoute.js'; // Importera din router
@@ -17,21 +14,19 @@ const allowedOrigins = [
   'https://portfolio-clent-i2fmnyl57-zabi-23s-projects.vercel.app'
 ];
 
-app.use(cors({
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
-
-// Middleware för att hantera OPTIONS-förfrågningar (preflight requests)
-app.options('*', cors()); 
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true');
+  }
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
 
 // Middleware för att hantera JSON
 app.use(express.json());
