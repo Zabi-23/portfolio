@@ -14,6 +14,9 @@ export default router;
 
 
  */
+
+
+
 import express from 'express';
 import cors from 'cors';
 import { sendEmailController } from '../controllers/portfolioController.js';
@@ -28,8 +31,8 @@ const corsOptions = {
   credentials: true,
 };
 
-router.options('/sendEmail', cors(corsOptions)); // Handle preflight request for sendEmail route
+// Handle preflight request for sendEmail route
+router.options('/sendEmail', cors(corsOptions));
 router.post('/sendEmail', cors(corsOptions), sendEmailController);
 
 export default router;
-

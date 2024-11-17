@@ -1,3 +1,4 @@
+
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -16,7 +17,7 @@ const allowedOrigins = [
   'http://localhost:5173' // Local development
 ];
 
-// CORS configuration with dynamic origin setting
+// CORS configuration
 const corsOptions = {
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
@@ -32,13 +33,13 @@ const corsOptions = {
 
 // Apply CORS middleware
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Handle preflight requests for all routes
+app.options('*', cors(corsOptions)); // Handle preflight requests
 
 // Debugging middleware to log request origin and method
 app.use((req, res, next) => {
+  console.log('Request Method:', req.method);
   console.log('Request Origin:', req.headers.origin);
   console.log('Request Path:', req.path);
-  console.log('Request Method:', req.method);
   next();
 });
 
