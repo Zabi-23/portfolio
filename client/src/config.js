@@ -1,7 +1,7 @@
 // src/config.js
 
 // src/config.js
-export const API_URL = "portfolio-server-six-drab.vercel.app";
+export const API_URL = "https://portfolio-server-eight-rho.vercel.app/";
 
 
 
