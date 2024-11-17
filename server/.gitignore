@@ -27,4 +27,3 @@ node_modules/
 *.sw?
 .env
 .vscode
-vercel.json
