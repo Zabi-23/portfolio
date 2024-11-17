@@ -18,20 +18,11 @@ export default router;
 
 
 import express from 'express';
-import cors from 'cors';
 import { sendEmailController } from '../controllers/portfolioController.js';
 
 const router = express.Router();
 
-const corsOptions = {
-  origin: 'https://portfolio-clent.vercel.app', // Your frontend URL
-  methods: 'POST',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-};
-
-// Handle preflight request for sendEmail route
-router.options('/sendEmail', cors(corsOptions));
-router.post('/sendEmail', cors(corsOptions), sendEmailController);
+// Send email route
+router.post('/sendEmail', sendEmailController);
 
 export default router;
