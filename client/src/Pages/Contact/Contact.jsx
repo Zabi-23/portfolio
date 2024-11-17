@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { API_URL } from "../.././config";
 import "./Contact.css";
 import { motion } from "framer-motion";
 import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
@@ -21,7 +22,7 @@ const Contact = () => {
         return;
       }
 
-      const res = await axios.post("http://localhost:8080/api/v1/portfolio/sendEmail", {
+      const res = await axios.post(`${API_URL}/sendEmail`, {
         name,
         email,
         phone, // Skicka med telefonnumret
