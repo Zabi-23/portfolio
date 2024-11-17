@@ -11,18 +11,19 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-
 const corsOptions = {
-  origin: [process.env.CLIENT_URL, 'https://portfolio-client-mocha.vercel.app/'], 
+  origin: [process.env.CLIENT_URL, 'https://portfolio-client-mocha.vercel.app'], // Utan avslutande snedstreck
   optionsSuccessStatus: 200,
 };
 
-app.use(cors());
+app.use(cors(corsOptions));  // Använd de specificerade corsOptions
+app.options('*', cors(corsOptions)); // Hantera preflight-förfrågningar (OPTIONS)
+
 app.use(express.json());
 
 // A simple route to check if the server is running
 app.get('/', (req, res) => {
-  res.send('Server is running. ');
+  res.send('Server is running.');
 });
 
 // Use the portfolio router
@@ -31,4 +32,3 @@ app.use('/api/v1/portfolio', portfolioRouter);
 app.listen(PORT, () => {
   console.log(`Server Running On PORT ${PORT}`);
 });
-
