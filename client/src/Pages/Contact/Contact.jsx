@@ -170,13 +170,14 @@ const Contact = () => {
         return;
       }
 
-      // Uppdaterad URL för att matcha serverns slutpunkt
-      const res = await axios.post(`${API_URL}/sendEmail`, {
-        name,
-        email,
-        phone, // Skicka med telefonnumret
-        msg,
-      });
+     
+        const res = await axios.post(`${API_URL}/sendEmail`, {
+         name,
+          email,
+         phone,
+          msg,
+          });
+
 
       if (res.data.success) {
         toast.success(res.data.message || "Ditt meddelande har skickats framgångsrikt");

@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import portfolioRouter from './routes/portfolioRoute.js'; // Importera din router
+import portfolioRouter from './routes/portfolioRoute.js';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Middleware för CORS
+// Lista över tillåtna ursprung
 const allowedOrigins = [
   'http://localhost:5173', // För utvecklingsmiljö
   'https://portfolio-clent.vercel.app', // Din live front-end domän
@@ -14,13 +14,14 @@ const allowedOrigins = [
   'https://portfolio-clent-i2fmnyl57-zabi-23s-projects.vercel.app'
 ];
 
+// Middleware för CORS
 app.use((req, res, next) => {
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);

@@ -61,7 +61,6 @@ export const sendEmailController = async (req, res) => {
 };
  */
 
-
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 
@@ -73,6 +72,7 @@ export const sendEmailController = async (req, res) => {
   try {
     const { name, email, msg } = req.body;
 
+    // Kontrollera att alla obligatoriska fält är ifyllda
     if (!name || !email || !msg) {
       return res.status(400).send({
         success: false,
@@ -100,10 +100,16 @@ export const sendEmailController = async (req, res) => {
     };
 
     // Skicka e-post
-    await transporter.sendMail(mailOptions);
-    res.status(200).send({ success: true, message: 'Email sent successfully' });
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error);
+        return res.status(500).send({ success: false, message: 'Email failed to send', error: error.message });
+      }
+      console.log('Email sent successfully:', info.response);
+      res.status(200).send({ success: true, message: 'Email sent successfully' });
+    });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).send({ success: false, message: 'Email failed to send' });
+    console.error('Unexpected error:', error);
+    res.status(500).send({ success: false, message: 'Unexpected error while sending email', error: error.message });
   }
 };
