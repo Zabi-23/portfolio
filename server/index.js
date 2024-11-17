@@ -1,5 +1,6 @@
 
 
+
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -10,12 +11,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Tillåt CORS från din deployade klient-URL
-app.use(cors({
-  origin: "https://portfolio-client-ochre-rho.vercel.app", // Byt till din Vercel klient-URL
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true // Om du behöver skicka cookies
-}));
+// Använd en mer öppen CORS-konfiguration för att testa
+app.use(cors());  // Tillåt alla origins (för test)
 
 app.use(express.json());
 
