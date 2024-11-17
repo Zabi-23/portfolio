@@ -23,7 +23,6 @@ import { sendEmailController } from '../controllers/portfolioController.js';
 
 const router = express.Router();
 
-// Apply CORS specifically for this route
 const corsOptions = {
   origin: 'https://portfolio-clent.vercel.app', // Your frontend URL
   methods: 'POST',
