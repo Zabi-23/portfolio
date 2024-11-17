@@ -7,7 +7,6 @@ import portfolioRouter from './routes/portfolioRoute.js'; // Importera din route
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Middleware för CORS
 const allowedOrigins = [
   'http://localhost:5173',
   'https://portfolio-clent.vercel.app',
@@ -27,15 +26,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
-
-// Alternativ för att hantera OPTIONS-förfrågningar
-app.options('*', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', req.get('Origin') || '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.sendStatus(200);
-});
 
 // Middleware för att hantera JSON
 app.use(express.json());

@@ -145,7 +145,7 @@ export default Contact;
 
  */
 
-
+//src/Pages/Contact/Contact.jsx
 
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -153,7 +153,7 @@ import axios from "axios";
 import "./Contact.css";
 import { motion } from "framer-motion";
 import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
-import { API_URL } from "../.././config";
+import { API_URL } from "../../config";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -171,7 +171,7 @@ const Contact = () => {
       }
 
       // Uppdaterad URL för att matcha serverns slutpunkt
-      const res = await axios.post(`${API_URL}/http://localhost:8080/api/v1/portfolio/sendEmail`, {
+      const res = await axios.post(`${API_URL}/sendEmail`, {
         name,
         email,
         phone, // Skicka med telefonnumret
