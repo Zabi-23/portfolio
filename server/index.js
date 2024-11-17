@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8080;
 
 
 const corsOptions = {
-  origin: [process.env.CLIENT_URL, 'https://portfolio-client-mocha.vercel.app'], 
+  origin: [process.env.CLIENT_URL, 'https://portfolio-client-mocha.vercel.app/'], 
   optionsSuccessStatus: 200,
 };
 
