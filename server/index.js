@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 
 const corsOptions = {
-  origin: "https://portfolio-client.vercel.app", 
+  origin: "https://portfolio-client-ochre-rho.vercel.app", 
   optionsSuccessStatus: 200,
 };
 
