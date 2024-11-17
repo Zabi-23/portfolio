@@ -1,16 +1,20 @@
 {
   "name": "portfilio",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
- "scripts": {
-  "server": "cd server && npm start",
-  "client": "cd client && npm run dev",
-  "dev": "concurrently \"npm run server\" \"npm run client\""
-}
-
-,
+  "scripts": {
+    "server": "cd server && nodemon index.js",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
 }

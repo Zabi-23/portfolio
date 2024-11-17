@@ -61,7 +61,12 @@ export const sendEmailController = async (req, res) => {
 };
  */
 
+
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+// Ladda miljövariabler från .env-filen
+dotenv.config();
 
 export const sendEmailController = async (req, res) => {
   console.log("Request body:", req.body);
@@ -75,28 +80,26 @@ export const sendEmailController = async (req, res) => {
       });
     }
 
-    // Create a transporter with SMTP details for Gmail
+    // Skapa en transporter med SMTP-detaljer för Gmail
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER, // Your Gmail address
-        pass: process.env.EMAIL_PASS, // Your Gmail password or app-specific password
+        user: process.env.EMAIL_USER, // Din Gmail-adress från .env
+        pass: process.env.EMAIL_PASS, // App-lösenord från Google
       },
       tls: {
-        rejectUnauthorized: false, // Allow insecure certificates if using a development environment
+        rejectUnauthorized: false, // Används endast i utvecklingsmiljöer
       },
-      debug: true, // Enable debug output
-      logger: true, // Enable log output
     });
 
     const mailOptions = {
-      from: `"${name}" <${email}>`,
-      to: process.env.EMAIL_USER, // Recipient email address
+      from: `"${name}" <${email}>`, // Avsändarens e-post
+      to: process.env.EMAIL_USER, // Mottagarens e-postadress
       subject: 'New Message from Portfolio Contact Form',
       text: msg,
     };
 
-    // Send the email
+    // Skicka e-post
     await transporter.sendMail(mailOptions);
     res.status(200).send({ success: true, message: 'Email sent successfully' });
   } catch (error) {
