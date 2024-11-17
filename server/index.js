@@ -10,13 +10,34 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Simplified and explicit CORS setup
+// Updated and more explicit CORS setup
+const allowedOrigins = [
+  'https://portfolio-clent.vercel.app', // Your frontend URL
+  'https://portfolio-clent-git-main-zabi-23s-projects.vercel.app',
+  'https://portfolio-clent-jla10zs7d-zabi-23s-projects.vercel.app',
+  'http://localhost:5173' // For local development
+];
+
 app.use(cors({
-  origin: 'https://portfolio-clent.vercel.app',
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
+// Explicitly handle preflight OPTIONS requests for all routes
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.sendStatus(200);
+});
 
 app.use(express.json());
 
@@ -28,12 +49,6 @@ app.get('/', (req, res) => {
 // Portfolio router for API routes
 app.use('/api/v1/portfolio', portfolioRouter);
 
-// Add the handler for the .well-known/vercel/microfrontend-routing path
-app.get('/.well-known/vercel/microfrontend-routing', (req, res) => {
-  res.status(404).send('Not Found');
-});
-
-// Start the server
 app.listen(PORT, () => {
   console.log(`Server Running On PORT ${PORT}`);
 });
