@@ -64,26 +64,26 @@ export const sendEmailController = async (req, res) => {
 import nodemailer from 'nodemailer';
 
 export const sendEmailController = async (req, res) => {
-  console.log('Request body:', req.body);
+  console.log("Request body:", req.body);
   try {
     const { name, email, msg } = req.body;
 
     if (!name || !email || !msg) {
       return res.status(400).send({
         success: false,
-        message: 'Please fill in all fields',
+        message: "Var vänlig och fyll i alla fält", // "Please fill in all fields"
       });
     }
 
     // Create a transporter with SMTP details for Gmail
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Gmail service
+      service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER, // Your Gmail address
         pass: process.env.EMAIL_PASS, // Your Gmail password or app-specific password
       },
       tls: {
-        rejectUnauthorized: false, // Allows insecure certificates if using a development environment
+        rejectUnauthorized: false, // Allow insecure certificates if using a development environment
       },
       debug: true, // Enable debug output
       logger: true, // Enable log output
@@ -91,7 +91,7 @@ export const sendEmailController = async (req, res) => {
 
     const mailOptions = {
       from: `"${name}" <${email}>`,
-      to: process.env.EMAIL_USER, // The recipient email address
+      to: process.env.EMAIL_USER, // Recipient email address
       subject: 'New Message from Portfolio Contact Form',
       text: msg,
     };
