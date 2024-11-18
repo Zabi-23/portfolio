@@ -27,6 +27,7 @@ const Contact = () => {
         phone,
         msg,
       });
+      
       if (res.data.success) {
         toast.success(res.data.message || "Ditt meddelande har skickats framgångsrikt");
         setName("");

@@ -1,6 +1,7 @@
 // src/config.js
 
-export const API_URL = "https://portfolio-server-wine-iota.vercel.app/";
+export const API_URL = "https://portfolio-server-wine-iota.vercel.app";
+
 
 
 

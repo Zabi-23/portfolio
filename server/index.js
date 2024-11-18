@@ -16,10 +16,13 @@ const corsOptions = {
     'http://localhost:5173',
     'https://portfolio-client-orcin-seven.vercel.app'
   ],
-  optionsSuccessStatus: 200,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // A simple route to check if the server is running
