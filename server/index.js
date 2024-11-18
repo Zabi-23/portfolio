@@ -1,4 +1,5 @@
 
+//server/index.js
 
 import express from 'express';
 import dotenv from 'dotenv';
@@ -8,19 +9,15 @@ import portfolioRouter from './routes/portfolioRoute.js';
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 8080;
 
-// Updated CORS setup
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*"); // Set this to a specific origin instead of "*" for security purposes in production
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS");
-  if (req.method === 'OPTIONS') {
-    // Send OK status for preflight requests
-    return res.sendStatus(204);
-  }
-  next();
-});
 
+const corsOptions = {
+  origin: [process.env.CLIENT_URL, 'http://localhost:5173'], 
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors());
 app.use(express.json());
 
 // A simple route to check if the server is running
@@ -31,5 +28,7 @@ app.get('/', (req, res) => {
 // Use the portfolio router
 app.use('/api/v1/portfolio', portfolioRouter);
 
-// Export the app for Vercel serverless function
-export default app;
+app.listen(PORT, () => {
+  console.log(`Server Running On PORT ${PORT}`);
+});
+
