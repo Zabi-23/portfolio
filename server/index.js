@@ -1,6 +1,4 @@
 
-
-//server/index.js
 //server/index.js
 
 import express from 'express';
@@ -13,45 +11,24 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Uppdaterade CORS-alternativ
+
 const corsOptions = {
-  origin: (origin, callback) => {
-    // Tillåt specifika klienter eller alla om origin är undefined (t.ex. för Postman eller localhost)
-    if (!origin || ['https://portfolio-client-tau-nine.vercel.app', 'https://portfolio-client-mocha.vercel.app', 'https://portfolio-server-nine-flax.vercel.app'].includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: [process.env.CLIENT_URL, 'http://localhost:5173'], 
   optionsSuccessStatus: 200,
 };
 
-// Använd CORS globalt med uppdaterade alternativ
-app.use(cors(corsOptions));  // Täcker alla inkommande förfrågningar
-
-// Middleware för att tolka JSON payloads
+app.use(cors());
 app.use(express.json());
 
-// Middleware för att sätta nödvändiga CORS-headers manuellt
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');  // Specifiera ursprung för att öka säkerhet
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-  next();
-});
-
-// En enkel route för att kontrollera om servern är igång
+// A simple route to check if the server is running
 app.get('/', (req, res) => {
-  res.send('Server is running.');
+  res.send('Server is running. Use /api/v1/portfolio for API routes.');
 });
 
-// Använd portfolio-routern
-app.use('/api/v1/portfolio', portfolioRouter); // Lägg till portfolio-router utan ytterligare CORS-konflikt
+// Use the portfolio router
+app.use('/api/v1/portfolio', portfolioRouter);
 
-// Starta servern på angiven port
 app.listen(PORT, () => {
   console.log(`Server Running On PORT ${PORT}`);
 });
+
