@@ -1,6 +1,6 @@
 
-//server/index.js
 
+//server/index.js
 
 import express from 'express';
 import dotenv from 'dotenv';
@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8080;
 const corsOptions = {
   origin: (origin, callback) => {
     // Tillåt specifika klienter eller alla om origin är undefined (t.ex. för Postman eller localhost)
-    if (!origin || ['https://portfolio-client-tau-nine.vercel.app', process.env.CLIENT_URL, 'https://portfolio-client-mocha.vercel.app'].includes(origin)) {
+    if (!origin || ['https://portfolio-client-tau-nine.vercel.app', 'https://portfolio-client-mocha.vercel.app', 'https://portfolio-server-nine-flax.vercel.app'].includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -31,7 +31,7 @@ app.options('*', cors(corsOptions)); // Hantera preflight-förfrågningar (OPTIO
 
 // Middleware för att sätta nödvändiga CORS-headers vid varje förfrågan
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');  // Eller specifiera en specifik klient-URL för ökad säkerhet
+  res.header('Access-Control-Allow-Origin', '*');  // Specifiera en specifik klient-URL för ökad säkerhet
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   next();
@@ -47,6 +47,9 @@ app.get('/', (req, res) => {
 
 // Använd portfolio-routern
 app.use('/api/v1/portfolio', cors(corsOptions), portfolioRouter); // Lägg till CORS på specifika rutter om så önskas
+
+// Hantera preflight-förfrågningar på specifika rutter
+app.options('/api/v1/portfolio/*', cors(corsOptions));
 
 // Starta servern på angiven port
 app.listen(PORT, () => {
