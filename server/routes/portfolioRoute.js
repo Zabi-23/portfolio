@@ -1,17 +1,24 @@
  //server/routes/portfolioRoute.js
 
+// Updated server/routes/portfolioRoute.js
 
 import express from "express";
 import { sendEmailController } from "../controllers/portfolioController.js";
 
 const router = express.Router();
 
-// Definiera route för att skicka e-post
-router.post("/sendEmail", sendEmailController);
+// Define route to send email
+router.post("/sendEmail", async (req, res) => {
+  try {
+    await sendEmailController(req, res);
+  } catch (error) {
+    console.error("Error sending email: ", error);
+    res.status(500).send("Failed to send email.");
+  }
+});
 
-// Exportera routern
+// Export the router
 export default router;
-
 
  
 

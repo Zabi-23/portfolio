@@ -1,7 +1,6 @@
 
 //server/index.js
 
-i// Updated server/index.js
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -10,7 +9,6 @@ import portfolioRouter from './routes/portfolioRoute.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 8080;
 
 const corsOptions = {
   origin: [
@@ -34,3 +32,5 @@ app.use('/api/v1/portfolio', portfolioRouter);
 
 // Export the app for Vercel serverless function
 export default app;
+
+

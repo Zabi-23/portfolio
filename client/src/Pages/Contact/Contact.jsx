@@ -7,6 +7,7 @@ import axios from "axios";
 import "./Contact.css";
 import { motion } from "framer-motion";
 import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
+import { API_URL } from "../../config";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -20,7 +21,7 @@ const Contact = () => {
         toast.error("Vänligen fyll i alla fält");
         return;
       }
-      const res = await axios.post("http://localhost:8080/api/v1/portfolio/sendEmail", {
+      const res = await axios.post(`${API_URL}/api/v1/portfolio/sendEmail`, {
         name,
         email,
         phone,
