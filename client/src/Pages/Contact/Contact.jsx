@@ -1,6 +1,8 @@
 
 //client/src/Pages/Contact/Contact.jsx
 
+
+
 import { useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -14,10 +16,11 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
   const [phone, setPhone] = useState("");
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!name || !email || !msg ) { // Kontrollera att alla fält är ifyllda
+      if (!name || !email || !msg) { // Kontrollera att alla fält är ifyllda
         toast.error("Vänligen fyll i alla fält");
         return;
       }
@@ -42,6 +45,7 @@ const Contact = () => {
       toast.error("Kunde inte skicka meddelande.");
     }
   };
+
   return (
     <div className="contact" id="contact">
       <div className="card card0 border-0">
@@ -72,18 +76,18 @@ const Contact = () => {
                   </h6>
                   {/* Lägg till telefonnummerlänk */}
                   <p>
-                    Telefon:{" "}
+                    Telefon: {" "}
                     <a href="tel:+46769242525" className="phone-link">
                       +46 769 242 525
                     </a>
                   </p>
                   {/* Lägg till SMS-länk */}
-                    <p className="sms-link">
-                     Skicka SMS:{" "}
-                     <a href={`sms:${phone}`} >
-                        Skicka ett SMS till mig
-                        </a>
-                      </p>
+                  <p className="sms-link">
+                    Skicka SMS: {" "}
+                    <a href={`sms:${phone}`} >
+                      Skicka ett SMS till mig
+                    </a>
+                  </p>
                 </div>
                 <div className="row px-3 mb-4">
                   <div className="line" />
@@ -111,6 +115,16 @@ const Contact = () => {
                   />
                 </div>
                 <div className="row px-3">
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Skriv ditt telefonnummer"
+                    className="mb-3"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </div>
+                <div className="row px-3">
                   <textarea
                     name="msg"
                     placeholder="Skriv ditt meddelande"
@@ -132,4 +146,5 @@ const Contact = () => {
     </div>
   );
 };
+
 export default Contact;

@@ -1,5 +1,5 @@
 
-//server/index.js
+// Updated server/index.js
 
 import express from 'express';
 import dotenv from 'dotenv';
@@ -10,18 +10,8 @@ dotenv.config();
 
 const app = express();
 
-const corsOptions = {
-  origin: [
-    process.env.CLIENT_URL,
-    'http://localhost:5173',
-    'https://portfolio-client-orcin-seven.vercel.app'
-  ],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-};
-
-app.use(cors(corsOptions));
+// Simplify CORS setup to allow all origins temporarily for debugging
+app.use(cors());
 
 app.use(express.json());
 
@@ -30,10 +20,16 @@ app.get('/', (req, res) => {
   res.send('Server is running. Use /api/v1/portfolio for API routes.');
 });
 
+// Manually handle preflight requests
+app.options('*', (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS");
+  res.sendStatus(204);
+});
+
 // Use the portfolio router
 app.use('/api/v1/portfolio', portfolioRouter);
 
 // Export the app for Vercel serverless function
 export default app;
-
-
