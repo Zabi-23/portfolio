@@ -12,9 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 const corsOptions = {
-  origin: [process.env.CLIENT_URL, 'https://portfolio-client-mocha.vercel.app'], // Utan avslutande snedstreck
+  origin: ['https://portfolio-client-tau-nine.vercel.app', process.env.CLIENT_URL, 'https://portfolio-client-mocha.vercel.app'],
   optionsSuccessStatus: 200,
 };
+
 
 app.use(cors(corsOptions));  // Använd de specificerade corsOptions
 app.options('*', cors(corsOptions)); // Hantera preflight-förfrågningar (OPTIONS)

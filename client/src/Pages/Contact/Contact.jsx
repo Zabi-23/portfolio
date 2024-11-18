@@ -24,7 +24,8 @@ const Contact = () => {
         return;
       }
       
-      const res = await axios.post(`${API_URL}/sendEmail`, {
+      const res = await axios.post(`${API_URL}api/v1/portfolio/sendEmail`, {
+
         name,
         email,
         phone,
