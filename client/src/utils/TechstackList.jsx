@@ -3,7 +3,7 @@
 // src/utils/TechstackList.jsx
 
 import { BsFiletypeHtml, BsFiletypeCss, BsBootstrap } from "react-icons/bs";
-import { FaNodeJs, FaAws } from "react-icons/fa";  
+import { FaNodeJs, FaAws,FaLock, FaShareAlt  } from "react-icons/fa";  
 import { TbBrandNextjs } from "react-icons/tb";
 import {
   SiJavascript,
@@ -18,6 +18,14 @@ import {
   SiDocker,
   SiExpress,
   SiNginx,
+  SiPostgresql,
+  SiVuedotjs,
+  SiGithubactions,
+  SiAzuredevops,
+  SiMicrosoft,
+  SiMicrosoftteams,
+  SiPowershell,
+  SiPostman,
 } from "react-icons/si";
 
 export const TechstackList = [
@@ -111,4 +119,15 @@ export const TechstackList = [
     name: "AWS",
     icon: FaAws,  
   },
+  { _id: 25, name: "PostgreSQL",        icon: SiPostgresql },
+  { _id: 26, name: "Vue.js",            icon: SiVuedotjs },
+  { _id: 27, name: "GitHub Actions",    icon: SiGithubactions },
+  { _id: 28, name: "Azure DevOps",      icon: SiAzuredevops },
+  { _id: 29, name: "Microsoft 365",     icon: SiMicrosoft },
+  { _id: 30, name: "Microsoft Teams",   icon: SiMicrosoftteams },
+  { _id: 31, name: "SharePoint Online", icon: FaShareAlt }, // SiSharepoint finns inte → fallback
+  { _id: 32, name: "OAuth",             icon: FaLock },     // SiOauth finns inte → fallback
+  { _id: 33, name: "PowerShell",        icon: SiPowershell },
+  { _id: 34, name: "Postman",           icon: SiPostman },
 ];
+
