@@ -1,7 +1,5 @@
 
-
 // src/Pages/WorkExp/WorkExp.jsx
-
 import { SiReact } from "react-icons/si";
 import {
   VerticalTimeline,
@@ -18,23 +16,41 @@ const WorkExp = () => {
           Work Experience
         </h2>
         <hr />
+
         <VerticalTimeline lineColor="#1e1e2c">
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
             contentStyle={{ background: "white", color: "#1e1e2c" }}
-            contentArrowStyle={{
-              borderRight: "7px solid white",
-            }}
-            date="2018 - 2023"
+            contentArrowStyle={{ borderRight: "7px solid white" }}
+            date="Jan 2025 – Present"
             iconStyle={{ background: "#1e1e2c", color: "#fff" }}
             icon={<SiReact />}
           >
             <h3 className="vertical-timeline-element-title">
-              Mathematics Teacher
+              Full-Stack Developer Intern
             </h3>
             <h4 className="vertical-timeline-element-subtitle">
-              Slottskolan
+              TechNspire AB (Zimplex AI)
             </h4>
+            <ul>
+              <li>Developed and launched a responsive website using Next.js and Tailwind CSS.</li>
+              <li>Built an AI-powered class dashboard with React, Node.js, and MongoDB.</li>
+              <li>Integrated Microsoft 365 (Teams & Outlook) into a school platform.</li>
+              <li>Implemented REST APIs and containerized services with Docker.</li>
+              <li>Collaborated in a Scrum team: sprint planning, code reviews, and daily standups.</li>
+            </ul>
+          </VerticalTimelineElement>
+
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{ background: "white", color: "#1e1e2c" }}
+            contentArrowStyle={{ borderRight: "7px solid white" }}
+            date="2018 - 2023"
+            iconStyle={{ background: "#1e1e2c", color: "#fff" }}
+            icon={<SiReact />}
+          >
+            <h3 className="vertical-timeline-element-title">Mathematics Teacher</h3>
+            <h4 className="vertical-timeline-element-subtitle">Slottskolan</h4>
             <p>
               Planned and conducted lessons in mathematics and social studies.
               Used a varied teaching approach to meet the needs of all students and tailored lessons to their individual requirements.
@@ -42,22 +58,17 @@ const WorkExp = () => {
               Collaborated with colleagues and other professionals to create a positive and cooperative work environment.
             </p>
           </VerticalTimelineElement>
+
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
             contentStyle={{ background: "white", color: "#1e1e2c" }}
-            contentArrowStyle={{
-              borderRight: "7px solid white",
-            }}
+            contentArrowStyle={{ borderRight: "7px solid white" }}
             date="2015 - 2017"
             iconStyle={{ background: "#1e1e2c", color: "#fff" }}
             icon={<SiReact />}
           >
-            <h3 className="vertical-timeline-element-title">
-              Youth Program Coordinator
-            </h3>
-            <h4 className="vertical-timeline-element-subtitle">
-              Vingåker Municipality
-            </h4>
+            <h3 className="vertical-timeline-element-title">Youth Program Coordinator</h3>
+            <h4 className="vertical-timeline-element-subtitle">Vingåker Municipality</h4>
             <p>
               Coordinated activities for youth at Fenix and Pegasus (HVB) residential centers.
               Created engaging programs that fostered personal development and social skills.
