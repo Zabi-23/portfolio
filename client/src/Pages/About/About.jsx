@@ -20,29 +20,25 @@ const About = () => {
           <div className="col-md-6 col-xl-6 col-lg-6 col-xs-12 about-content">
             <h1>About me</h1>
             <p>
-              Hello! My name is Zabi Sideqi, and I’m a dedicated and ambitious
-              student currently studying to become a full-stack developer at
-              CHAS Academy (2023-2025). I’m passionate about creating
-              innovative, user-friendly web solutions, and I’m currently looking
-              for an internship (LIA) where I can apply my skills in a
-              professional environment and contribute with my technical
-              expertise.
+              Hi! My name is Zabi Sideqi, and I’m a newly graduated full-stack developer 
+              from Chas Academy (2023–2025). I enjoy building responsive, user-friendly web
+              applications and love taking features all the way from concept to production. 
+              During my internship at TechNspire AB (Zimplex AI), I gained hands-on experience by
+              developing a Next.js website, building an AI-powered class dashboard (React, Node.js, MongoDB),
+              integrating Microsoft 365 (Teams /Outlook), and containerizing services with Docker. 
+              I collaborated in a Scrum team, which strengthened my skills in agile development and teamwork.  
             </p>
             <p>
-              Through my studies, I’ve gained a solid foundation in both
-              frontend and backend development, focusing on tools like HTML,
-              CSS, JavaScript, TypeScript, and React.js. I’ve also started
-              delving into backend and API development, which has provided me
-              with a well-rounded understanding of the entire development
-              process.
+              Through my studies, I built a solid foundation in both frontend and backend development, 
+              focusing on React/Next.js, TypeScript/JavaScript, Node.js/Express, REST APIs, PostgreSQL, 
+              and MongoDB. I’ve also worked with Docker, CI/CD pipelines, and had introductory exposure 
+              to cloud platforms like AWS and Azure DevOps. my studies, I’ve gained a solid foundation in both
+              
             </p>
             <p>
-              Previously, I worked as a teacher in a preparatory group, where I
-              was responsible for planning and conducting lessons. This
-              experience helped me develop strong communication skills and
-              effective teamwork abilities, qualities I believe are essential in
-              web development as well. My goal is to contribute to a team where
-              I can continue to grow professionally and create solutions that
+              Before becoming a developer, I worked as a mathematics teacher, which helped me develop
+              strong problem-solving, communication, and collaboration skills — qualities I now apply in software 
+              development. My goal is to contribute to a team where I can grow as a developer and create solutions that truly make a difference.
               make a real difference.
             </p>
           </div>
