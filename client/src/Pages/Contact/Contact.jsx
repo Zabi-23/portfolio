@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import "./Contact.css";
 import { motion } from "framer-motion";
-import { BsFacebook, BsGithub, BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -58,70 +58,66 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-6 col-md-6">
-            <div className="card2 d-flex card border-0 px-4 py-5">
-              <div className="row">
-                <div className="row">
-                  <h6>
-                    Kontakta oss
-                    <BsLinkedin color="blue" size={30} className="ms-2" />
-                    <BsGithub color="black" size={30} className="ms-2" />
-                    <BsFacebook color="blue" size={30} className="ms-2" />
-                  </h6>
-                  {/* Lägg till telefonnummerlänk */}
-                  <p>
-                    Telefon:{" "}
-                    <a href="tel:+46769242525" className="phone-link">
-                      +46 769 242 525
-                    </a>
-                  </p>
-                  {/* Lägg till SMS-länk */}
-                    <p className="sms-link">
-                     Skicka SMS:{" "}
-                     <a href={`sms:${phone}`} >
-                        Skicka ett SMS till mig
-                        </a>
-                      </p>
-                </div>
-                <div className="row px-3 mb-4">
-                  <div className="line" />
-                  <small className="or text-center">ELLER</small>
-                  <div className="line" />
-                </div>
-                <div className="row px-3">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Skriv ditt namn"
-                    className="mb-3"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-                <div className="row px-3">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Skriv din e-postadress"
-                    className="mb-3"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="row px-3">
-                  <textarea
-                    name="msg"
-                    placeholder="Skriv ditt meddelande"
-                    className="mb-3"
-                    value={msg}
-                    onChange={(e) => setMsg(e.target.value)}
-                  />
-                </div>
-                <div className="row px-3">
-                  <button className="button" onClick={handleSubmit}>
-                    SKICKA MEDDELANDE
-                  </button>
-                </div>
+          <div className="col-md-6 col-lg-6 col-xl-6 col-sm-12">
+            <div className="card2">
+              <h6>
+                Contact Me
+                <a href="https://www.linkedin.com/in/zabi-sideqi-4564432a0/" target="_blank" rel="noopener noreferrer">
+                  <BsLinkedin color="blue" size={30} className="ms-2" />
+                </a>
+                <a href="https://github.com/Zabi-23/" target="_blank" rel="noopener noreferrer">
+                  <BsGithub color="black" size={30} className="ms-2" />
+                </a>
+                
+              </h6>
+              {/* Lägg till telefonnummerlänk */}
+              <p>
+                Phone: +46769242525
+                <span className="sms-link">
+                  {" "}Send SMS:{" "}
+                  <a href="sms:+46769242525">
+                    Send a SMS to me
+                  </a>
+                </span>
+              </p>
+              <div className="row px-3 mb-4">
+                <div className="line" />
+                <small className="or text-center">Or</small>
+                <div className="line" />
+              </div>
+              <div className="row px-3">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Write your Name"
+                  className="mb-3"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className="row px-3">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Write your Email Address"
+                  className="mb-3"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="row px-3">
+                <textarea
+                  name="msg"
+                  placeholder="Write your Message"
+                  className="mb-3"
+                  value={msg}
+                  onChange={(e) => setMsg(e.target.value)}
+                />
+              </div>
+              <div className="row px-3">
+                <button className="button" onClick={handleSubmit}>
+                  SEND MESSAGE
+                </button>
               </div>
             </div>
           </div>

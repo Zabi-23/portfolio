@@ -34,7 +34,7 @@ const Projects = () => {
                 <div className="card-image">
                   <span className="card-notify-badge">Full stack</span>
                   <img
-                    src="https://unctad.org/sites/default/files/2021-03/2021-03-15_eCommerceCOVID19report-1-1220x675px.jpg"
+                    src="/home.png"
                     alt="project1"
                   />
                 </div>
@@ -43,14 +43,15 @@ const Projects = () => {
                   <span className="card-detail-badge">Express</span>
                   <span className="card-detail-badge">React</span>
                   <span className="card-detail-badge">MongoDB</span>
+                  <span className="card-detail-badge">OAuth</span>
                 </div>
                 <div className="card-body text-center">
                   <div className="ad-title m-auto">
-                    <h6 className="text-uppercase">Techinfoyt Shopping Website</h6>
+                    <h6 className="text-uppercase">Find your next perfect place — with ease</h6>
                   </div>
                   <a
                     className="ad-btn"
-                    href="https://github.com/Zabi-23/IMS.git"
+                    href="https://homeiq-client.onrender.com/"
                      target="_blank"
                       rel="noopener noreferrer"
                      >
@@ -91,9 +92,9 @@ const Projects = () => {
             <div className="col-md-4">
               <div className="card rounded">
                 <div className="card-image">
-                  <span className="card-notify-badge">AI-study</span>
+                  <span className="card-notify-badge">Zimplex.ai</span>
                   <img
-                   src="/image/ai-study.jpeg"
+                   src="/image/Logo.png"
                     alt="project3"
                   />
                 </div>
@@ -101,16 +102,17 @@ const Projects = () => {
                  
                   <span className="card-detail-badge">Node</span>
                   <span className="card-detail-badge">Express</span>
-                  <span className="card-detail-badge">MongoDB</span><br></br>
-                  <span className="card-detail-badge">React</span>
+                  <span className="card-detail-badge">Azure</span><br></br>
+                  <span className="card-detail-badge">Next.js</span>
                   <span className="card-detail-badge">TypeScript</span>
                 </div>
                 <div className="card-body text-center">
                   <div className="ad-title m-auto">
-                    <h5 className="text-uppercase">AI-StudyBuddy</h5>
+                    <h5 className="text-uppercase">Automating teacher
+                         workflows</h5>
                   </div>
                   <a className="ad-btn" 
-                  href="https://github.com/Zabi-23/AI-StudyBuddy.git"
+                  href="https://zimplex.ai/"
                   target="_blank"
                   rel="noopener noreferrer">
                     View
