@@ -1,5 +1,3 @@
-// src/Pages/About/About.jsx
-
 import './About.css';
 import { motion } from 'framer-motion';
 
@@ -15,31 +13,34 @@ const About = () => {
       <div className="about" id="about">
         <div className="row">
           <div className="col-md-6 col-xl-6 col-lg-6 col-xs-12 about-img">
-            <img src="/image/profile2.jpg" alt="profile_pic" />
+            <img src="/image/profile2.jpg" alt="Portrait of Zabi Sideqi" />
           </div>
           <div className="col-md-6 col-xl-6 col-lg-6 col-xs-12 about-content">
             <h1>About me</h1>
             <p>
-              Hi! My name is Zabi Sideqi, and I’m a newly graduated full-stack developer 
-              from Chas Academy (2023–2025). I enjoy building responsive, user-friendly web
-              applications and love taking features all the way from concept to production. 
-              During my internship at TechNspire AB (Zimplex AI), I gained hands-on experience by
-              developing a Next.js website, building an AI-powered class dashboard (React, Node.js, MongoDB),
-              integrating Microsoft 365 (Teams /Outlook), and containerizing services with Docker. 
-              I collaborated in a Scrum team, which strengthened my skills in agile development and teamwork.  
+              Hi! My name is Zabi Sideqi, and I’m a full-stack developer who
+              graduated from Chas Academy (2023–2025). I enjoy building
+              responsive, user-friendly web applications and taking features
+              from concept to production. During my internship at TechNspire AB
+              (Zimplex AI), I developed a Next.js website, contributed to an
+              AI-powered class dashboard using React, Node.js and MongoDB,
+              integrated Microsoft 365 (Teams and Outlook), and containerized
+              services with Docker. I also collaborated in a Scrum team and
+              strengthened my skills in agile development and teamwork.
             </p>
             <p>
-              Through my studies, I built a solid foundation in both frontend and backend development, 
-              focusing on React/Next.js, TypeScript/JavaScript, Node.js/Express, REST APIs, PostgreSQL, 
-              and MongoDB. I’ve also worked with Docker, CI/CD pipelines, and had introductory exposure 
-              to cloud platforms like AWS and Azure DevOps. my studies, I’ve gained a solid foundation in both
-              
+              Through my studies and projects, I built a foundation in frontend
+              and backend development, including React, Next.js,
+              TypeScript/JavaScript, Node.js/Express, REST APIs, PostgreSQL and
+              MongoDB. I have also worked with Docker and CI/CD pipelines and
+              gained introductory experience with AWS and Azure DevOps.
             </p>
             <p>
-              Before becoming a developer, I worked as a mathematics teacher, which helped me develop
-              strong problem-solving, communication, and collaboration skills — qualities I now apply in software 
-              development. My goal is to contribute to a team where I can grow as a developer and create solutions that truly make a difference.
-              make a real difference.
+              Before becoming a developer, I worked as a mathematics teacher.
+              That experience strengthened my problem-solving, communication
+              and collaboration skills, which I bring to software development.
+              I’m looking to contribute to a team where I can continue growing
+              as a developer and build useful, reliable solutions.
             </p>
           </div>
         </div>
@@ -49,4 +50,3 @@ const About = () => {
 };
 
 export default About;
-
