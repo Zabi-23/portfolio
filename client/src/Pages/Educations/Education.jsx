@@ -1,4 +1,3 @@
-
 //src/Pages/Educations/Education.jsx
 
 import { MdSchool } from "react-icons/md";
@@ -23,9 +22,9 @@ const Education = () => {
             iconStyle={{ background: "#138781", color: "#fff" }}
             icon={<MdSchool />}
           >
-            <h3 className="vertical-timeline-element-title">Economi</h3>
+            <h3 className="vertical-timeline-element-title">Economics Programme</h3>
             <h4 className="vertical-timeline-element-subtitle">
-            Studenten: Ekonomiprogrammet
+              Upper-secondary education
             </h4>
           </VerticalTimelineElement>
           <VerticalTimelineElement
@@ -36,9 +35,22 @@ const Education = () => {
             iconStyle={{ background: "#138781", color: "#fff" }}
             icon={<MdSchool />}
           >
-            <h3 className="vertical-timeline-element-title">Full stack developer</h3>
+            <h3 className="vertical-timeline-element-title">Full-Stack Developer</h3>
             <h4 className="vertical-timeline-element-subtitle">
               Chas Academy
+            </h4>
+          </VerticalTimelineElement>
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{ background: "white", color: "black" }}
+            contentArrowStyle={{ borderRight: "7px solid white" }}
+            date="Additional training"
+            iconStyle={{ background: "#138781", color: "#fff" }}
+            icon={<MdSchool />}
+          >
+            <h3 className="vertical-timeline-element-title">.NET / C# Training</h3>
+            <h4 className="vertical-timeline-element-subtitle">
+              Lexicon
             </h4>
           </VerticalTimelineElement>
         </VerticalTimeline>
@@ -48,5 +60,3 @@ const Education = () => {
 };
 
 export default Education;
-
-
